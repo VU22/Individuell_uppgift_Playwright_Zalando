@@ -22,7 +22,22 @@ public class LogIn_test extends TestBase {
             
     
   }
-     
+    
+    @Test
+    void loginUt() {
+        
+    	
+    	LoginPage loginPage = new LoginPage(page);
+    	loginPage.openLoginPage();
+    	loginPage.login("viktoria.zalando.test@gmail.com","grp490grp490" );
+    	loginPage.logaut();
+    	
+    	
+        assertThat(page.getByText("Logga in"));
+            
+    
+  }
+    
     @Test
     void loginWithWrongPassword() {
             	
@@ -32,6 +47,8 @@ public class LogIn_test extends TestBase {
     	loginPage.login("viktoria.zalando.test@gmail.com","grp450grp450" );           
             
         assertThat(page.getByTestId("login_error_notification")).isVisible();
+        
             
      }
+    
   }

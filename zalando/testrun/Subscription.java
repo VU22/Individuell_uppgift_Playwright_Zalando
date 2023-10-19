@@ -2,9 +2,7 @@ package testrun;
 
 import org.junit.jupiter.api.Test;
 
-import com.microsoft.playwright.Locator;
-import com.microsoft.playwright.Page;
-import com.microsoft.playwright.options.AriaRole;
+import pages.Subscribtion_page;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
@@ -15,30 +13,13 @@ public class Subscription extends TestBase {
 	@Test
 	void SubscripeTo () {
 		
-		Locator yourPost = page.getByLabel("Din e-postadress");
-		Locator modeWoman = page.getByText("Mode för dam");
-		Locator more =page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Fler alternativ"));
-		Locator checkboxes = page.getByRole(AriaRole.CHECKBOX);
-		Locator itemAlerts = page.getByTestId("item-alerts");
-		Locator prenumeration = page.getByText("Jag vill prenumerera");
-		
-		yourPost.fill("viktoria.zalando.test@gmail.com");
-		modeWoman.click();
-		more.click();
-		for (int i = 0; i < checkboxes.count(); i++) {
-            checkboxes.nth(i).check();	        
-            for (int b = 0; b < itemAlerts.count(); b++) {
-                itemAlerts.nth(b).click();
-            
-         prenumeration. click();       
+		Subscribtion_page subscribtion_page = new Subscribtion_page(page);
+		subscribtion_page.subscribtion("viktoria.zalando.test@gmail.com");
 
 		
-		assertThat(yourPost).not().isEmpty();
-		assertThat(page.getByText("Vi har skickat dig ett välkomstmejl")).isVisible();
-		
-	}
+		assertThat(subscribtion_page.yourPost).not().isEmpty();
+		assertThat(page.getByText("Vi har skickat dig ett välkomstmejl")).isHidden();		
 
-}
 	}
 }
 	

@@ -1,10 +1,7 @@
 package testrun;
 import org.junit.jupiter.api.Test;
 
-
-import com.microsoft.playwright.Locator;
-import com.microsoft.playwright.Page;
-
+import pages.SearchPage;
 import testbase.TestBase;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
@@ -17,18 +14,15 @@ public class Search_test extends TestBase {
 	@Test
     void produktSearch() {
 			
-	
-	Locator searchInput  = page.getByLabel("Sök efter");
-	Locator suggestList = page.getByTestId("auto-suggest-list");
-	Locator suggest  = page.getByText("klänningar", new Page.GetByTextOptions().setExact(true));
+	SearchPage searchPage = new SearchPage(page);
+	searchPage.search("klänningar");	
 	
 	
-	searchInput.fill("klänningar");
-	suggestList.isVisible();
-	suggest.click();
+	
+	searchPage.suggest.click();
 	
 	
-	assertThat(searchInput).hasValue("klänningar");
+	assertThat(SearchPage.searchInput).hasValue("klänningar");
 	assertThat(page.getByText("Kläningar"));
 	
 	
@@ -36,17 +30,13 @@ public class Search_test extends TestBase {
 	
 	
 	@Test
-    void negativeSearch() {       
-			
-	
-	Locator searchInput  = page.getByLabel("Sök efter");
-	
+    void negativeSearch() {   
 		
-	searchInput.fill("mjöl");
-	searchInput.dblclick();
+		SearchPage searchPage = new SearchPage(page);
+		searchPage.search("mjöl");		
 	
 	
-	assertThat(searchInput).hasValue("mjöl");
+	assertThat(SearchPage.searchInput).hasValue("mjöl");
 	assertThat(page.getByText("Kontrollera stavning eller testa att söka efter ett annat ord."));
 	
 	}	

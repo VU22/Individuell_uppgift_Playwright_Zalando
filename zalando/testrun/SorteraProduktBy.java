@@ -2,11 +2,7 @@ package testrun;
 
 import org.junit.jupiter.api.Test;
 
-import com.microsoft.playwright.Locator;
-import com.microsoft.playwright.Page;
-import com.microsoft.playwright.options.AriaRole;
-
-
+import pages.SorteraProductBy_Page;
 import testbase.TestBase;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
@@ -17,23 +13,12 @@ public class SorteraProduktBy extends TestBase {
 	@Test
 	void ProduktSortering() {
 		
-			String loginUrl = "https://zalando.se/kvinna-home/";
-			page.navigate(loginUrl);
+		SorteraProductBy_Page sorteraProductBy_Page = new SorteraProductBy_Page(page);
+		sorteraProductBy_Page.openPageUrl();
+		sorteraProductBy_Page.sortera();
+ 			
 		
-			
-			
-			
-        Locator clothes = page.getByRole(AriaRole.PRESENTATION).and (page.getByLabel("Kläder"));
-        Locator sortera = page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Sortera"));
-        Locator menu = page.getByRole(AriaRole.MENU);
-        Locator populärt =  menu.getByLabel("Mest populärt");
-               
-       
-        clothes.click();
-        sortera.click();
-        populärt.check();
-        
-        assertThat(populärt).isChecked();
+        assertThat(sorteraProductBy_Page.popular).isChecked();
         
 	}
 }

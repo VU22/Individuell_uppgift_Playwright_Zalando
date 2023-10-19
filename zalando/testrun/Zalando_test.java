@@ -3,9 +3,10 @@ package testrun;
 import java.nio.file.Paths;
 import org.junit.jupiter.api.Test;
 
-
-import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
+
+import pages.Zalando_page;
+
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
 import testbase.TestBase;
@@ -15,13 +16,9 @@ public class Zalando_test extends TestBase {
 		
 	@Test
 	    void OpenPage_Test() {
-	        
-		  
-	       Locator mainLogo =page.getByTestId("logo-main");
 	       
-	       mainLogo.click();
-	       
-	       
+	       Zalando_page zalando_page = new Zalando_page(page);
+	       zalando_page.open_Zalando();
 	       
 	       assertThat(page).hasURL("https://www.zalando.se/");
 	        

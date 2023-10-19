@@ -15,6 +15,7 @@ public class LoginPage extends PageBase {
 	Locator emailInput;
 	Locator passwordInput;
 	Locator loginButton;
+	Locator logautButton;
 	
 	
 
@@ -24,6 +25,7 @@ public class LoginPage extends PageBase {
 		this.emailInput = page.getByPlaceholder("E-postadress");
 		this.passwordInput = page.getByPlaceholder("Lösenord");
 		this.loginButton = page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Logga in"));
+		this.logautButton = page.getByRole(AriaRole.MENU).and (page.getByText("Är du inte Viktoria? Logga ut"));
 		
 	}
 
@@ -36,8 +38,14 @@ public class LoginPage extends PageBase {
 		yourAccountButton.click();
 		emailInput.fill(userName);
 		passwordInput.fill(password);
-		loginButton.click();
+		loginButton.click();		
+
 	}
+	public void logaut () {
+		
+		logautButton.click();
+	}
+			
 
 }
 
