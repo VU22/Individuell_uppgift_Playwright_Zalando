@@ -23,7 +23,7 @@ public class TestBase {
 	  @BeforeAll
 	  static void launchBrowser() {
 	    playwright = Playwright.create();
-	    browser = playwright.firefox().launch(new BrowserType.LaunchOptions().setHeadless(true));
+	    browser = playwright.firefox().launch(new BrowserType.LaunchOptions().setHeadless(false).setSlowMo(3000));
 	  }
 
 	  @AfterAll
