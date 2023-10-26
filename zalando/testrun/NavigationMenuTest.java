@@ -18,6 +18,7 @@ public class NavigationMenuTest extends TestBase {
         
         
         NavigationMenuPage navigationMenuPage = new NavigationMenuPage(page);
+        navigationMenuPage.openPageTo();
         navigationMenuPage.navigate();
         
         assertThat(navigationMenuPage.kvinnaButton).isEnabled();

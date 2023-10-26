@@ -14,6 +14,7 @@ public class Subscription extends TestBase {
 	void SubscripeTo () {
 		
 		Subscribtion_page subscribtion_page = new Subscribtion_page(page);
+		subscribtion_page.openPageTo();
 		subscribtion_page.subscribtion("viktoria.zalando.test@gmail.com");
 
 		

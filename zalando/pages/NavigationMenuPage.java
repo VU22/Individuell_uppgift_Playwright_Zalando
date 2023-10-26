@@ -31,7 +31,14 @@ public class NavigationMenuPage extends PageBase {
         
 	}
 	
-		public void navigate() {
+		
+			
+			public void openPageTo () {
+				String loginUrl = ("https://www.zalando.se/");
+		        page.navigate(loginUrl);
+			}
+			
+			public void navigate() {
 			   
 			    kvinnaButton.click();
 		        manButton.click();

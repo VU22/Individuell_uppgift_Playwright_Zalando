@@ -15,6 +15,7 @@ public class Search_test extends TestBase {
     void produktSearch() {
 			
 	SearchPage searchPage = new SearchPage(page);
+	searchPage.openPageTo();
 	searchPage.search("klänningar");	
 	
 	
@@ -33,6 +34,7 @@ public class Search_test extends TestBase {
     void negativeSearch() {   
 		
 		SearchPage searchPage = new SearchPage(page);
+		searchPage.openPageTo();
 		searchPage.search("mjöl");		
 	
 	

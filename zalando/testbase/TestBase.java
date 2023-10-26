@@ -36,8 +36,6 @@ public class TestBase {
 	    context = browser.newContext();
 	    page = context.newPage();
 	    
-	    String loginUrl = ("https://www.zalando.se/");
-		page.navigate(loginUrl);
 		
 		 Locator acceptCookies = page.getByRole(AriaRole.BUTTON,
 	                new Page.GetByRoleOptions().setName("Det är OK"));

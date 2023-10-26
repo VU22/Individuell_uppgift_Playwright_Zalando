@@ -20,6 +20,11 @@ public class SearchPage extends PageBase {
 		
 	}
 	
+	public void openPageTo () {
+		String loginUrl = ("https://www.zalando.se/");
+        page.navigate(loginUrl);
+	}
+	
 	public void search (String suggest) {
 		searchInput.fill(suggest);
 		suggestList.isVisible();		

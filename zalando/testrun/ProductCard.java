@@ -40,7 +40,7 @@ public class ProductCard extends TestBase {
 		productCardPage.brandLink();
 		
 	
-	assertThat(page).hasURL("https://www.zalando.se/tiger-of-sweden/");
+	assertThat(page).hasURL("https://www.zalando.se/katalog/tiger-of-sweden/");
 	
 	 System.out.println("Testet lyckades!");
 	

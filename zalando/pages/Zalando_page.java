@@ -17,6 +17,11 @@ public class Zalando_page extends PageBase {
 		
 	}
 	
+	public void openPageTo () {
+		String loginUrl = ("https://www.zalando.se/");
+        page.navigate(loginUrl);
+	}
+	
 	public void open_Zalando () {
 		
 		mainLogo.click();

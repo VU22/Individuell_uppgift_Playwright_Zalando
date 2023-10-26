@@ -3,7 +3,7 @@ import com.microsoft.playwright.Page;
 
 public class PageBase {
 
-	Page page;
+	protected Page page;
 	
 	public PageBase() {
 	}

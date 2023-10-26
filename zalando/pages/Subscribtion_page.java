@@ -27,6 +27,11 @@ public class Subscribtion_page extends PageBase {
 		this.prenumeration = page.getByText("Jag vill prenumerera");
 	}
 	
+	public void openPageTo () {
+		String loginUrl = ("https://www.zalando.se/");
+        page.navigate(loginUrl);
+	}
+	
 	public void subscribtion (String post) {
 		
 		yourPost.fill(post);

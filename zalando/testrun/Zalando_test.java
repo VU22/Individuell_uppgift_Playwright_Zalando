@@ -18,6 +18,7 @@ public class Zalando_test extends TestBase {
 	    void OpenPage_Test() {
 	       
 	       Zalando_page zalando_page = new Zalando_page(page);
+	       zalando_page.openPageTo();
 	       zalando_page.open_Zalando();
 	       
 	       assertThat(page).hasURL("https://www.zalando.se/");
