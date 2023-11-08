@@ -5,30 +5,28 @@ import com.microsoft.playwright.Page;
 
 import pagebase.PageBase;
 
-public class MouseOver_Page extends PageBase{
-	
-	 Locator clickMe;
-     Locator clickCount;
+public class MouseOver_Page extends PageBase {
 
-    public void MouseOver(Page page) {
-         
-    	String MouseOverUrl = ("http://uitestingplayground.com/mouseover");
-        page.navigate(MouseOverUrl);
+	Locator clickMe;
+	Locator clickCount;
 
-        this.page = page;
-        this.clickMe = page.getByText("Click me");
-        this.clickCount = page.locator("#clickCount");
-               
-    }
+	public void MouseOver(Page page) {
 
+		String MouseOverUrl = ("http://uitestingplayground.com/mouseover");
+		page.navigate(MouseOverUrl);
 
-    public void ClickMe() {
-        clickMe.click();
-    }
+		this.page = page;
+		this.clickMe = page.getByText("Click me");
+		this.clickCount = page.locator("#clickCount");
 
-    public int getClickCount() {
-        String clickCount = page.locator("#clickCount").textContent();
-        return Integer.parseInt(clickCount);
-    }
+	}
+
+	public void ClickMe() {
+		clickMe.click();
+	}
+
+	public int getClickCount() {
+		String clickCount = page.locator("#clickCount").textContent();
+		return Integer.parseInt(clickCount);
+	}
 }
-

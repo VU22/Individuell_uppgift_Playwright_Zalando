@@ -7,7 +7,7 @@ import com.microsoft.playwright.options.AriaRole;
 import pagebase.PageBase;
 
 public class Subscribtion_page extends PageBase {
-	
+
 	Page page;
 	public Locator yourPost;
 	Locator modeWoman;
@@ -15,9 +15,9 @@ public class Subscribtion_page extends PageBase {
 	Locator checkboxes;
 	Locator itemAlerts;
 	Locator prenumeration;
-	
-	public Subscribtion_page (Page page) {
-		
+
+	public Subscribtion_page(Page page) {
+
 		this.page = page;
 		this.yourPost = page.getByLabel("Din e-postadress");
 		this.modeWoman = page.getByText("Mode för dam");
@@ -26,25 +26,25 @@ public class Subscribtion_page extends PageBase {
 		this.itemAlerts = page.getByTestId("item-alerts");
 		this.prenumeration = page.getByText("Jag vill prenumerera");
 	}
-	
-	public void openPageTo () {
+
+	public void openPageTo() {
 		String loginUrl = ("https://www.zalando.se/");
-        page.navigate(loginUrl);
+		page.navigate(loginUrl);
 	}
-	
-	public void subscribtion (String post) {
-		
+
+	public void subscribtion(String post) {
+
 		yourPost.fill(post);
 		modeWoman.click();
 		more.click();
 		for (int i = 0; i < checkboxes.count(); i++) {
-            checkboxes.nth(i).check();	        
-            for (int b = 0; b < itemAlerts.count(); b++) {
-                itemAlerts.nth(b).click();
-            
-         prenumeration. click(); 
-	}
-		}          
+			checkboxes.nth(i).check();
+			for (int b = 0; b < itemAlerts.count(); b++) {
+				itemAlerts.nth(b).click();
 
-}
+				prenumeration.click();
+			}
+		}
+
+	}
 }

@@ -11,16 +11,14 @@ import testbase.TestBase;
 
 public class Input_test extends TestBase {
 
-	    @Test
-	    public void TextInputTextTest(){
+	@Test
+	public void TextInputTextTest() {
 
-	        InputPage inputPage = new InputPage(page);
-	        inputPage.openTextInput();
-	        inputPage.fillNewButton();
+		InputPage inputPage = new InputPage(page);
+		inputPage.openTextInput();
+		inputPage.fillNewButton();
 
-	        assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Ny knapp"))).isVisible();
+		assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Ny knapp"))).isVisible();
 
-
-	    }
 	}
-
+}

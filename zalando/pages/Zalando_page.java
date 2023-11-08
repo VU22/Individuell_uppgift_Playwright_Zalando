@@ -6,26 +6,26 @@ import com.microsoft.playwright.Page;
 import pagebase.PageBase;
 
 public class Zalando_page extends PageBase {
-	
+
 	Page page;
 	Locator mainLogo;
-	
-	public Zalando_page (Page page) {
-		
+
+	public Zalando_page(Page page) {
+
 		this.page = page;
-		this.mainLogo = page.getByTestId("logo-main"); 
-		
+		this.mainLogo = page.getByTestId("logo-main");
+
 	}
-	
-	public void openPageTo () {
+
+	public void openPageTo() {
 		String loginUrl = ("https://www.zalando.se/");
-        page.navigate(loginUrl);
+		page.navigate(loginUrl);
 	}
-	
-	public void open_Zalando () {
-		
+
+	public void open_Zalando() {
+
 		mainLogo.click();
-		
+
 	}
 
 }

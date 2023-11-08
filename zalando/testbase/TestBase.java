@@ -9,44 +9,39 @@ import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
 import com.microsoft.playwright.options.AriaRole;
 
-
-
 public class TestBase {
-	  
-	  protected static Playwright playwright;
-	  protected static Browser browser;
 
-	 
-	  protected BrowserContext context;
-	  protected Page page;
+	protected static Playwright playwright;
+	protected static Browser browser;
 
-	  @BeforeAll
-	  static void launchBrowser() {
-	    playwright = Playwright.create();
-	    browser = playwright.firefox().launch(new BrowserType.LaunchOptions().setHeadless(false).setSlowMo(3000));
-	  }
+	protected BrowserContext context;
+	protected Page page;
 
-	  @AfterAll
-	  static void closeBrowser() {
-	    playwright.close();
-	  }
+	@BeforeAll
+	static void launchBrowser() {
+		playwright = Playwright.create();
+		browser = playwright.firefox().launch(new BrowserType.LaunchOptions().setHeadless(false).setSlowMo(3000));
+	}
 
-	  @BeforeEach
-	  void createContextAndPage() {
-	    context = browser.newContext();
-	    page = context.newPage();
-	    
-		
-		 Locator acceptCookies = page.getByRole(AriaRole.BUTTON,
-	                new Page.GetByRoleOptions().setName("Det är OK"));
+	@AfterAll
+	static void closeBrowser() {
+		playwright.close();
+	}
 
-	        if (acceptCookies.isVisible()) {
-	            acceptCookies.click();
-	        }
-	  } 
+	@BeforeEach
+	void createContextAndPage() {
+		context = browser.newContext();
+		page = context.newPage();
 
-	  @AfterEach
-	  void closeContext() {
-	    context.close();
-	  }
+		Locator acceptCookies = page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Det är OK"));
+
+		if (acceptCookies.isVisible()) {
+			acceptCookies.click();
+		}
+	}
+
+	@AfterEach
+	void closeContext() {
+		context.close();
+	}
 }

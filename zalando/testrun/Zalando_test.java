@@ -11,27 +11,23 @@ import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertTha
 
 import testbase.TestBase;
 
-
 public class Zalando_test extends TestBase {
-		
+
 	@Test
-	    void OpenPage_Test() {
-	       
-	       Zalando_page zalando_page = new Zalando_page(page);
-	       zalando_page.openPageTo();
-	       zalando_page.open_Zalando();
-	       
-	       assertThat(page).hasURL("https://www.zalando.se/");
-	        
-	        System.out.println(page.title());
-            page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("Zalando_webbshop.png")));
-            
-            page.close(); 
-            context.close(); 
-            browser.close();                                            
-            
-		}
-	}       
+	void OpenPage_Test() {
 
-	
+		Zalando_page zalando_page = new Zalando_page(page);
+		zalando_page.openPageTo();
+		zalando_page.open_Zalando();
 
+		assertThat(page).hasURL("https://www.zalando.se/");
+
+		System.out.println(page.title());
+		page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("Zalando_webbshop.png")));
+
+		page.close();
+		context.close();
+		browser.close();
+
+	}
+}
